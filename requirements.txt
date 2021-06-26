@@ -2,3 +2,4 @@
 torch==1.8.1+cpu
 transformers==4.6.1
 voila==0.2.10
+ipywidgets==7.6.3
