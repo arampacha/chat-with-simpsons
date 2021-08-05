@@ -1,11 +1,11 @@
+import os
 import streamlit as st
 import json
 import requests
 
 import time
 
-
-API_TOKEN = st.secrets["HF_API_TOKEN"]
+API_TOKEN = os.environ.get("HF_API_TOKEN")
 headers = {"Authorization": f"Bearer {API_TOKEN}"}
 API_URL = "https://api-inference.huggingface.co/models/arampacha/DialoGPT-medium-simpsons"
 
