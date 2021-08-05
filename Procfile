@@ -1,1 +1,1 @@
-web: voila --port=$PORT --no-browser --enable_nbextensions=True --show_tracebacks=True chatbot-app.ipynb
+web: sh setup.sh && streamlit run app.py
