@@ -29,7 +29,7 @@ def fake_query(payload):
 
 parameters = {
     "min_length":None,
-    "max_length":50,
+    "max_length":100,
     "top_p":0.92,
     "repetition_penalty":None,
 }
@@ -54,8 +54,12 @@ def on_input():
         }
         # result = fake_query(payload)
         result = query(payload)
-        st.session_state.update(result["conversation"])
-        st.session_state.full_text += f'_Chatbot_ > {result["generated_text"]}\n\n'
+        try:
+            st.session_state.update(result["conversation"])
+            st.session_state.full_text += f'_Chatbot_ > {result["generated_text"]}\n\n'
+        except:
+            st.write("D'oh! Something went wrong. Try to rerun the app.")
+            st.write(result)
     st.session_state.count += 1
 
 
