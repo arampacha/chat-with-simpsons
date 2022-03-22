@@ -31,13 +31,16 @@ parameters = {
     "min_length":None,
     "max_length":100,
     "top_p":0.92,
+    "temperature":1.0,
     "repetition_penalty":None,
 }
-
-# options = {}
+options = {
+    "use_cache":False,
+    "wait_for_model":False
+}
 
 def on_input():
-    # st.write("Input changed")
+    
     if st.session_state.count > 0:
         user_input = st.session_state.user_input
         st.session_state.full_text += f"_User_  >>> {user_input}\n\n"
@@ -51,6 +54,7 @@ def on_input():
                 "generated_responses": st.session_state.generated_responses,
             },
             "parameters": parameters,
+            "options":options,
         }
         # result = fake_query(payload)
         result = query(payload)
